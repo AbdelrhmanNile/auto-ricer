@@ -8,7 +8,10 @@ cli = typer.Typer(add_completion=True)
 
 @cli.command()
 def from_img(wallpaper: str):
-    if not os.path.isdir(f"/home/{os.getlogin()}/.config/auto-ricer"):
+
+    config_folder = f"/home/{os.getlogin()}/.config/auto-ricer"
+
+    if not os.path.isdir(config_folder):
         install_theme()
     colors_from_img = pywal.colors.get(wallpaper)
 
@@ -27,10 +30,10 @@ def from_img(wallpaper: str):
     fix_gtk_colors()
 
     oomox_file_path = f"/home/{os.getlogin()}/.cache/wal/colors-oomox"
-    gtk_theme_command = f"cd theme_materia/materia-theme && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -t /home/{os.getlogin()}/.themes {oomox_file_path}"
+    gtk_theme_command = f"cd {config_folder}/theme_materia/materia-theme && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -t /home/{os.getlogin()}/.themes {oomox_file_path}"
     os.system(gtk_theme_command)
 
-    icons_theme_command = f"cd icons_papirus && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -d /home/{os.getlogin()}/.icons/auto-ricer {oomox_file_path}"
+    icons_theme_command = f"cd {config_folder}/icons_papirus && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -d /home/{os.getlogin()}/.icons/auto-ricer {oomox_file_path}"
     os.system(icons_theme_command)
 
 
