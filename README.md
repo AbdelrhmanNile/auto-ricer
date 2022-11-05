@@ -4,6 +4,7 @@ A simple script to automatically rice bspwm, polybar, gtk, and more.
 ## Dependencies
 - ```bspwm```
 - ```polybar``` with Xresources support
+- ```feh```
 
 Extras:
 - ```st``` terminal with Xresources support
