@@ -3,13 +3,12 @@ import os
 import typer
 from time import sleep
 
+config_folder = f"/home/{os.getlogin()}/.config/auto-ricer"
 cli = typer.Typer(add_completion=True)
 
 
 @cli.command()
 def from_img(wallpaper: str):
-
-    config_folder = f"/home/{os.getlogin()}/.config/auto-ricer"
 
     if not os.path.isdir(config_folder):
         install_theme()
@@ -50,7 +49,7 @@ def fix_gtk_colors():
 
 def install_theme():
     os.system(
-        f"cd /home/{os.getlogin()}/.config/auto-ricer && git clone https://github.com/AbdelrhmanNile/auto-ricer.git"
+        f"mkdir {config_folder} && cd {config_folder} && git clone https://github.com/AbdelrhmanNile/auto-ricer.git"
     )
     os.system(
         f"cd /home/{os.getlogin()}/.config/auto-ricer/auto-ricer && cp /gtk/. /home/{os.getlogin()}/.config/auto-ricer/"
