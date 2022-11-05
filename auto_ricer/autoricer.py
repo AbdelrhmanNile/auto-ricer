@@ -29,10 +29,10 @@ def from_img(wallpaper: str):
     fix_gtk_colors()
 
     oomox_file_path = f"/home/{os.getlogin()}/.cache/wal/colors-oomox"
-    gtk_theme_command = f"cd {config_folder}/theme_materia/materia-theme && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -t /home/{os.getlogin()}/.themes {oomox_file_path}"
+    gtk_theme_command = f"cd {config_folder}/auto-ricer/gtk/theme_materia/materia-theme && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -t /home/{os.getlogin()}/.themes {oomox_file_path}"
     os.system(gtk_theme_command)
 
-    icons_theme_command = f"cd {config_folder}/icons_papirus && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -d /home/{os.getlogin()}/.icons/auto-ricer {oomox_file_path}"
+    icons_theme_command = f"cd {config_folder}/auto-ricer/gtk/icons_papirus && chmod +x change_color.sh && ./change_color.sh -o auto-ricer -d /home/{os.getlogin()}/.icons/auto-ricer {oomox_file_path}"
     os.system(icons_theme_command)
 
 
@@ -51,10 +51,6 @@ def install_theme():
     os.system(
         f"mkdir {config_folder} && cd {config_folder} && git clone https://github.com/AbdelrhmanNile/auto-ricer.git"
     )
-    os.system(
-        f"cd /home/{os.getlogin()}/.config/auto-ricer/auto-ricer && cp /gtk/. /home/{os.getlogin()}/.config/auto-ricer/"
-    )
-    os.system(f"rm -r /home/{os.getlogin()}/.config/auto-ricer/auto-ricer")
 
 
 if __name__ == "__main__":
