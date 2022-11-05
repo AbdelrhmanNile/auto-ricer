@@ -54,7 +54,7 @@ def install_theme():
     os.system(
         f"cd /home/{os.getlogin()}/.config/auto-ricer/auto-ricer && cp /gtk/. /home/{os.getlogin()}/.config/auto-ricer/"
     )
-    os.system(f"rm -rf /home/{os.getlogin()}/.config/auto-ricer/auto-ricer")
+    os.system(f"rm -r /home/{os.getlogin()}/.config/auto-ricer/auto-ricer")
 
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "auto-ricer"
-version = "0.1.2-3"
+version = "0.1.2-4"
 description = ""
 authors = ["AbdelrhmanNile <abdelrhmannile@gmail.com>"]
 readme = "README.md"
